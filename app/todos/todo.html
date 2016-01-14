@@ -1,0 +1,10 @@
+<b>ID</b>: {{todo.id}}, <b>title</b>: {{todo.title}},
+<b>completed</b>:
+
+<span ng-if="todo.completed == false" class="glyphicon glyphicon-remove" aria-hidden="true">
+</span>
+
+<span ng-if="todo.completed == true" class="glyphicon glyphicon-ok" aria-hidden="true">
+</span>
+
+<small>(User: <a href="#/user/{{user.id}}">{{user.name}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>)</small>

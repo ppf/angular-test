@@ -1,0 +1,20 @@
+<h2>Users:</h2>
+
+<table class="table">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Website</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="user in users track by user.id">
+		<td><a href="#/user/{{user.id}}">{{user.name}} <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></td>
+		<td>{{user.email}}</td>
+		<td>{{user.phone}}</td>
+		<td>{{user.website}}</td>
+	</tr>
+	</tbody>
+</table>
