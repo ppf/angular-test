@@ -32,13 +32,14 @@ angular.module('myApp', [
 	// service for getting users
 	.factory('userService', function ($q, $rootScope, $http) {
 		var userService = {};
+		var baseUrl = 'http://jsonplaceholder.typicode.com';
 
 		userService.data = {};
 
 		// get all users
 		userService.getUsers = function () {
 			var defer = $q.defer();
-			$http.get('http://jsonplaceholder.typicode.com/users', {cache: true})
+			$http.get(baseUrl + '/users', {cache: true})
 				.success(function (data) {
 					defer.resolve(data);
 				});
@@ -49,7 +50,7 @@ angular.module('myApp', [
 		// get one user
 		userService.getUser = function (userId) {
 			var defer = $q.defer();
-			$http.get('http://jsonplaceholder.typicode.com/users/' + userId, {cache: true})
+			$http.get(baseUrl + '/users/' + userId, {cache: true})
 				.success(function (data) {
 					defer.resolve(data);
 				});
@@ -60,7 +61,7 @@ angular.module('myApp', [
 		// get user todos
 		userService.getUserTodos = function (userId) {
 			var defer = $q.defer();
-			$http.get('http://jsonplaceholder.typicode.com/users/' + userId + '/todos', {cache: true})
+			$http.get(baseUrl + '/users/' + userId + '/todos', {cache: true})
 				.success(function (data) {
 					defer.resolve(data);
 				});
