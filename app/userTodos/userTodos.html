@@ -4,6 +4,8 @@ Email: {{user.email}} <br/>
 Phone: {{user.phone}}
 
 <h4>User todos:</h4>
-<div ng-repeat="todo in todos track by todo.id">
-	<one-todo todo=todo user=user></one-todo>
-</div>
+<ul>
+	<li ng-repeat="todo in todos track by todo.id">
+		<one-todo todo=todo user=user></one-todo>
+	</li>
+</ul>
