@@ -10,12 +10,13 @@ angular.module('myApp', [
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.otherwise({redirectTo: '/todos'});
 	}])
+	// service for getting todos
 	.factory('todoService', function ($q, $rootScope, $http) {
 		var todoService = {};
 
 		todoService.data = {};
 
-		//Gets the list of nuclear weapons
+		// get all todos
 		todoService.getTodos = function () {
 			var defer = $q.defer();
 			$http.get('http://jsonplaceholder.typicode.com/todos', {cache: true})
@@ -28,12 +29,13 @@ angular.module('myApp', [
 
 		return todoService;
 	})
-
+	// service for getting users
 	.factory('userService', function ($q, $rootScope, $http) {
 		var userService = {};
 
 		userService.data = {};
 
+		// get all users
 		userService.getUsers = function () {
 			var defer = $q.defer();
 			$http.get('http://jsonplaceholder.typicode.com/users', {cache: true})
@@ -44,7 +46,7 @@ angular.module('myApp', [
 			return defer.promise;
 		};
 
-		//Gets the list of nuclear weapons
+		// get one user
 		userService.getUser = function (userId) {
 			var defer = $q.defer();
 			$http.get('http://jsonplaceholder.typicode.com/users/' + userId, {cache: true})
@@ -55,7 +57,7 @@ angular.module('myApp', [
 			return defer.promise;
 		};
 
-		//Gets the list of nuclear weapons
+		// get user todos
 		userService.getUserTodos = function (userId) {
 			var defer = $q.defer();
 			$http.get('http://jsonplaceholder.typicode.com/users/' + userId + '/todos', {cache: true})
